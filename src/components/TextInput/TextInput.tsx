@@ -190,13 +190,13 @@ class TextInput extends React.Component<TextInputProps, State> {
   static getDerivedStateFromProps(nextProps: TextInputProps, prevState: State) {
     return {
       value:
-        typeof nextProps.value !== 'undefined'
-          ? nextProps.value
+        typeof nextProps.value !== 'undefined' ||
+        typeof nextProps.defaultValue !== 'undefined'
+          ? nextProps.value || nextProps.defaultValue
           : prevState.value,
     };
   }
-  validInputValue =
-    this.props.value !== undefined ? this.props.value : this.props.defaultValue;
+  validInputValue = this.props.value || this.props.defaultValue;
 
   state = {
     labeled: new Animated.Value(this.validInputValue ? 0 : 1),
@@ -453,7 +453,6 @@ class TextInput extends React.Component<TextInputProps, State> {
     return mode === 'outlined' ? (
       <TextInputOutlined
         {...rest}
-        value={this.state.value}
         parentState={this.state}
         innerRef={(ref) => {
           this.root = ref;
@@ -469,7 +468,6 @@ class TextInput extends React.Component<TextInputProps, State> {
     ) : (
       <TextInputFlat
         {...rest}
-        value={this.state.value}
         parentState={this.state}
         innerRef={(ref) => {
           this.root = ref;
