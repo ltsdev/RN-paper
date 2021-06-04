@@ -29,6 +29,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
    * In `outlined` mode, the background color of the label is derived from `colors.background` in theme or the `backgroundColor` style.
    * This component render TextInputOutlined or TextInputFlat based on that props
    */
+  alwayShowLabel?: boolean;
   mode?: 'flat' | 'outlined';
   left?: React.ReactNode;
   right?: React.ReactNode;
@@ -238,18 +239,22 @@ class TextInput extends React.Component<TextInputProps, State> {
     ) {
       // The label should be minimized if the text input is focused, or has text
       // In minimized mode, the label moves up and becomes small
-      if (this.state.value || this.state.focused) {
+      if (this.state.value || this.state.focused || this.props.alwayShowLabel) {
         this.minimizeLabel();
       } else {
         this.restoreLabel();
       }
     }
 
-    if (isFocusChanged || isLabelChanged) {
+    if (isFocusChanged || isLabelChanged || this.props.alwayShowLabel) {
       // Show placeholder text only if the input is focused, or there's no label
       // We don't show placeholder if there's a label because the label acts as placeholder
       // When focused, the label moves up, so we can show a placeholder
-      if (this.state.focused || !this.props.label) {
+      if (
+        this.state.focused ||
+        !this.props.label ||
+        this.props.alwayShowLabel
+      ) {
         this.showPlaceholder();
       } else {
         this.hidePlaceholder();
@@ -279,13 +284,13 @@ class TextInput extends React.Component<TextInputProps, State> {
 
     // Set the placeholder in a delay to offset the label animation
     // If we show it immediately, they'll overlap and look ugly
-    this.timer = (setTimeout(
+    this.timer = setTimeout(
       () =>
         this.setState({
           placeholder: this.props.placeholder,
         }),
       50
-    ) as unknown) as NodeJS.Timeout;
+    ) as unknown as NodeJS.Timeout;
   };
 
   private hidePlaceholder = () =>
