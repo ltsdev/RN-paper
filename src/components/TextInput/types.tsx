@@ -45,6 +45,7 @@ export type ChildTextInputProps = {
   onLayoutAnimatedText: (args: any) => void;
   onLeftAffixLayoutChange: (event: LayoutChangeEvent) => void;
   onRightAffixLayoutChange: (event: LayoutChangeEvent) => void;
+  customLabelColor?: string;
 } & TextInputTypesWithoutMode;
 export type LabelProps = {
   mode?: 'flat' | 'outlined';
@@ -68,11 +69,13 @@ export type LabelProps = {
   errorColor?: string;
   error?: boolean | null;
   onLayoutAnimatedText: (args: any) => void;
+  customLabelColor?: string;
 };
 export type InputLabelProps = {
   parentState: State;
   labelProps: LabelProps;
   labelBackground?: any;
+  customLabelColor?: string;
 };
 export type LabelBackgroundProps = {
   labelProps: LabelProps;

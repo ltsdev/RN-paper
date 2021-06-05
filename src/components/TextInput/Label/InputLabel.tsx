@@ -27,6 +27,7 @@ const InputLabel = (props: InputLabelProps) => {
     placeholderColor,
     errorColor,
     labelTranslationXOffset,
+    customLabelColor,
   } = props.labelProps;
 
   const labelTranslationX = {
@@ -124,7 +125,12 @@ const InputLabel = (props: InputLabelProps) => {
           labelStyle,
           paddingOffset,
           {
-            color: error && errorColor ? errorColor : placeholderColor,
+            color:
+              error && errorColor
+                ? errorColor
+                : customLabelColor
+                ? customLabelColor
+                : placeholderColor,
             opacity: placeholderOpacity,
           },
         ]}

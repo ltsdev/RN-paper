@@ -30,6 +30,7 @@ export type TextInputProps = React.ComponentPropsWithRef<
    * This component render TextInputOutlined or TextInputFlat based on that props
    */
   alwayShowLabel?: boolean;
+  customLabelColor?: string;
   mode?: 'flat' | 'outlined';
   left?: React.ReactNode;
   right?: React.ReactNode;
@@ -246,14 +247,18 @@ class TextInput extends React.Component<TextInputProps, State> {
       }
     }
 
-    if (isFocusChanged || isLabelChanged || this.props.alwayShowLabel) {
+    if (
+      isFocusChanged ||
+      isLabelChanged ||
+      (this.props.label && this.props.alwayShowLabel)
+    ) {
       // Show placeholder text only if the input is focused, or there's no label
       // We don't show placeholder if there's a label because the label acts as placeholder
       // When focused, the label moves up, so we can show a placeholder
       if (
         this.state.focused ||
         !this.props.label ||
-        this.props.alwayShowLabel
+        (this.props.label && this.props.alwayShowLabel)
       ) {
         this.showPlaceholder();
       } else {
