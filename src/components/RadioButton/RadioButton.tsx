@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 import RadioButtonAndroid from './RadioButtonAndroid';
 import RadioButtonIOS from './RadioButtonIOS';
-import { withTheme } from '../../core/theming';
-import type { Theme } from '../../types';
 
 export type Props = {
   /**
@@ -33,7 +34,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * testID to be used on tests.
    */
@@ -99,9 +100,4 @@ const RadioButton = (props: Props) => {
   return <Button {...props} />;
 };
 
-export default withTheme(RadioButton);
-
-// @component-docs ignore-next-line
-const RadioButtonWithTheme = withTheme(RadioButton);
-// @component-docs ignore-next-line
-export { RadioButtonWithTheme as RadioButton };
+export default withInternalTheme(RadioButton);

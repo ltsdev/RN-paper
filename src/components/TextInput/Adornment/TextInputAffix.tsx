@@ -1,19 +1,20 @@
 import React from 'react';
-import color from 'color';
 import {
-  Text,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
-  LayoutChangeEvent,
   Animated,
+  LayoutChangeEvent,
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextStyle,
   ViewStyle,
 } from 'react-native';
 
-import { withTheme } from '../../../core/theming';
-import { AdornmentSide } from './enums';
-import type { Theme } from '../../../types';
+import color from 'color';
+
+import { withInternalTheme } from '../../../core/theming';
+import type { InternalTheme } from '../../../types';
 import { getConstants } from '../helpers';
+import { AdornmentSide } from './enums';
 
 export type Props = {
   /**
@@ -28,7 +29,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
 };
 
 type ContextState = {
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(TextInputAffix);
+export default withInternalTheme(TextInputAffix);
 
 // @component-docs ignore-next-line
 export { TextInputAffix, AffixAdornment };

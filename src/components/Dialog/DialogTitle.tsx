@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { StyleSheet, StyleProp, TextStyle } from 'react-native';
-import Title from '../Typography/v2/Title';
+import { StyleProp, StyleSheet, TextStyle } from 'react-native';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 import Text from '../Typography/Text';
-import { withTheme } from '../../core/theming';
-import type { Theme } from '../../types';
+import Title from '../Typography/v2/Title';
 
 export type Props = React.ComponentPropsWithRef<typeof Title> & {
   /**
@@ -14,7 +15,7 @@ export type Props = React.ComponentPropsWithRef<typeof Title> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
 };
 
 /**
@@ -55,13 +56,17 @@ const DialogTitle = ({ children, theme, style, ...rest }: Props) => {
   const { isV3 } = theme;
 
   const TextComponent = isV3 ? Text : Title;
-  const textColor = isV3 ? theme.colors.onSurface : theme.colors?.text;
+
+  const headerTextStyle = {
+    color: isV3 ? theme.colors.onSurface : theme.colors?.text,
+    ...(isV3 ? theme.fonts.headlineSmall : {}),
+  };
 
   return (
     <TextComponent
       variant="headlineSmall"
       accessibilityRole="header"
-      style={[styles.text, isV3 && styles.v3Text, { color: textColor }, style]}
+      style={[styles.text, isV3 && styles.v3Text, headerTextStyle, style]}
       {...rest}
     >
       {children}
@@ -83,7 +88,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(DialogTitle);
+export default withInternalTheme(DialogTitle);
 
 // @component-docs ignore-next-line
 export { DialogTitle };

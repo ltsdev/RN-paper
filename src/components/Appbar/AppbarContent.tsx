@@ -8,14 +8,17 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+
 import color from 'color';
 
-import Text from '../Typography/Text';
-
-import { withTheme } from '../../core/theming';
+import { withInternalTheme } from '../../core/theming';
 import { white } from '../../styles/themes/v2/colors';
-
-import type { $RemoveChildren, MD3TypescaleKey, Theme } from '../../types';
+import type {
+  $RemoveChildren,
+  InternalTheme,
+  MD3TypescaleKey,
+} from '../../types';
+import Text from '../Typography/Text';
 import { modeTextVariant } from './utils';
 
 export type Props = $RemoveChildren<typeof View> & {
@@ -57,7 +60,7 @@ export type Props = $RemoveChildren<typeof View> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
 };
 
 /**
@@ -114,7 +117,11 @@ const AppbarContent = ({
   const variant = modeTextVariant[mode] as MD3TypescaleKey;
 
   return (
-    <TouchableWithoutFeedback onPress={onPress} disabled={!onPress}>
+    <TouchableWithoutFeedback
+      accessibilityRole="button"
+      onPress={onPress}
+      disabled={!onPress}
+    >
       <View
         pointerEvents="box-none"
         style={[styles.container, isV3 && modeContainerStyles[mode], style]}
@@ -127,7 +134,7 @@ const AppbarContent = ({
             {
               color: titleTextColor,
               ...(isV3
-                ? theme.typescale[variant]
+                ? theme.fonts[variant]
                 : Platform.OS === 'ios'
                 ? theme.fonts.regular
                 : theme.fonts.medium),
@@ -184,9 +191,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(AppbarContent);
+export default withInternalTheme(AppbarContent);
 
 // @component-docs ignore-next-line
-const AppbarContentWithTheme = withTheme(AppbarContent);
+const AppbarContentWithTheme = withInternalTheme(AppbarContent);
 // @component-docs ignore-next-line
 export { AppbarContentWithTheme as AppbarContent };

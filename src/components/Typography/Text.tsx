@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {
-  Text as NativeText,
-  TextStyle,
+  I18nManager,
   StyleProp,
   StyleSheet,
-  I18nManager,
-  Platform,
+  Text as NativeText,
+  TextStyle,
 } from 'react-native';
-import { useTheme } from '../../core/theming';
+
+import { useInternalTheme } from '../../core/theming';
+import { tokens } from '../../styles/themes/v3/tokens';
 import { Font, MD3TypescaleKey, ThemeProp } from '../../types';
 
 export type Props = React.ComponentProps<typeof NativeText> & {
@@ -83,8 +84,8 @@ const Text: React.ForwardRefRenderFunction<{}, Props> = (
 ) => {
   const root = React.useRef<NativeText | null>(null);
   // FIXME: destructure it in TS 4.6+
-  const theme = useTheme(initialTheme);
-  const writingDirection = I18nManager.isRTL ? 'rtl' : 'ltr';
+  const theme = useInternalTheme(initialTheme);
+  const writingDirection = I18nManager.getConstants().isRTL ? 'rtl' : 'ltr';
 
   React.useImperativeHandle(ref, () => ({
     setNativeProps: (args: Object) => root.current?.setNativeProps(args),
@@ -94,12 +95,12 @@ const Text: React.ForwardRefRenderFunction<{}, Props> = (
     const stylesByVariant = Object.keys(MD3TypescaleKey).reduce(
       (acc, key) => {
         const { fontSize, fontWeight, lineHeight, letterSpacing, fontFamily } =
-          theme.typescale[key as keyof typeof MD3TypescaleKey];
+          theme.fonts[key as keyof typeof MD3TypescaleKey];
 
         return {
           ...acc,
           [key]: {
-            ...(Platform.OS === 'android' && { fontFamily }),
+            fontFamily,
             fontSize,
             fontWeight,
             lineHeight,
@@ -128,18 +129,22 @@ const Text: React.ForwardRefRenderFunction<{}, Props> = (
       />
     );
   } else {
+    const { brandRegular, weightRegular } = tokens.md.ref.typeface;
+    const font = theme.isV3
+      ? {
+          fontFamily: brandRegular,
+          fontWeight: weightRegular,
+        }
+      : theme.fonts?.regular;
+    const textStyle = {
+      ...font,
+      color: theme.isV3 ? theme.colors?.onSurface : theme.colors.text,
+    };
     return (
       <NativeText
         {...rest}
         ref={root}
-        style={[
-          {
-            ...(!theme.isV3 && theme.fonts?.regular),
-            color: theme.isV3 ? theme.colors?.onSurface : theme.colors.text,
-          },
-          styles.text,
-          style,
-        ]}
+        style={[styles.text, textStyle, { writingDirection }, style]}
       />
     );
   }

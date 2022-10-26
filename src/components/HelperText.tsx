@@ -1,15 +1,17 @@
 import * as React from 'react';
-import color from 'color';
 import {
   Animated,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
   LayoutChangeEvent,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
 } from 'react-native';
+
+import color from 'color';
+
+import { withInternalTheme } from '../core/theming';
+import type { $Omit, InternalTheme } from '../types';
 import AnimatedText from './Typography/AnimatedText';
-import { withTheme } from '../core/theming';
-import type { $Omit, Theme } from '../types';
 
 export type Props = $Omit<
   $Omit<React.ComponentPropsWithRef<typeof AnimatedText>, 'padding'>,
@@ -35,7 +37,7 @@ export type Props = $Omit<
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * TestID used for testing purposes
    */
@@ -170,4 +172,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(HelperText);
+export default withInternalTheme(HelperText);

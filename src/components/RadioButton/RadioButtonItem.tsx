@@ -1,20 +1,21 @@
 import * as React from 'react';
 import {
-  View,
-  StyleSheet,
   StyleProp,
-  ViewStyle,
+  StyleSheet,
   TextStyle,
+  View,
+  ViewStyle,
 } from 'react-native';
-import { withTheme } from '../../core/theming';
-import { RadioButtonContext, RadioButtonContextType } from './RadioButtonGroup';
-import { handlePress, isChecked } from './utils';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme, MD3TypescaleKey } from '../../types';
 import TouchableRipple from '../TouchableRipple/TouchableRipple';
-import RadioButton from './RadioButton';
 import Text from '../Typography/Text';
+import RadioButton from './RadioButton';
 import RadioButtonAndroid from './RadioButtonAndroid';
+import { RadioButtonContext, RadioButtonContextType } from './RadioButtonGroup';
 import RadioButtonIOS from './RadioButtonIOS';
-import type { MD3TypescaleKey, Theme } from '../../types';
+import { handlePress, isChecked } from './utils';
 
 export type Props = {
   /**
@@ -77,7 +78,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * testID to be used on tests.
    */
@@ -213,10 +214,10 @@ const RadioButtonItem = ({
 
 RadioButtonItem.displayName = 'RadioButton.Item';
 
-export default withTheme(RadioButtonItem);
+export default withInternalTheme(RadioButtonItem);
 
 // @component-docs ignore-next-line
-const RadioButtonItemWithTheme = withTheme(RadioButtonItem);
+const RadioButtonItemWithTheme = withInternalTheme(RadioButtonItem);
 // @component-docs ignore-next-line
 export { RadioButtonItemWithTheme as RadioButtonItem };
 

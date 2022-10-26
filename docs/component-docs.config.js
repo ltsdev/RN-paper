@@ -1,7 +1,7 @@
 /* @flow */
 
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 
 const root = path.join(__dirname, '..');
 const dist = path.join(__dirname, 'dist');
@@ -137,5 +137,7 @@ module.exports = {
       'https://reactnative.dev/docs/accessibility#accessibilitystate',
     'StyleProp<ViewStyle>': 'https://reactnative.dev/docs/view-style-props',
     'StyleProp<TextStyle>': 'https://reactnative.dev/docs/text-style-props',
+    "ScrollViewProps['keyboardShouldPersistTaps']":
+      'https://reactnative.dev/docs/scrollview#keyboardshouldpersisttaps',
   },
 };

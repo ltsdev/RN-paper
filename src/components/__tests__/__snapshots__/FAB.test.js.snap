@@ -61,8 +61,11 @@ exports[`renders FAB with custom size prop 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -74,6 +77,7 @@ exports[`renders FAB with custom size prop 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -218,8 +222,11 @@ exports[`renders custom color for the icon and label of the FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -231,6 +238,7 @@ exports[`renders custom color for the icon and label of the FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -375,8 +383,11 @@ exports[`renders default FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -388,6 +399,7 @@ exports[`renders default FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -532,8 +544,11 @@ exports[`renders disabled FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -545,6 +560,7 @@ exports[`renders disabled FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -690,8 +706,11 @@ exports[`renders extended FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -703,6 +722,7 @@ exports[`renders extended FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -785,6 +805,7 @@ exports[`renders extended FAB 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -884,8 +905,11 @@ exports[`renders extended FAB with custom size prop 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -897,6 +921,7 @@ exports[`renders extended FAB with custom size prop 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -978,6 +1003,7 @@ exports[`renders extended FAB with custom size prop 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1076,8 +1102,11 @@ exports[`renders large FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1089,6 +1118,7 @@ exports[`renders large FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -1233,8 +1263,11 @@ exports[`renders loading FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1246,6 +1279,7 @@ exports[`renders loading FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -1532,8 +1566,11 @@ exports[`renders loading FAB with custom size prop 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1545,6 +1582,7 @@ exports[`renders loading FAB with custom size prop 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -1831,8 +1869,11 @@ exports[`renders not visible FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1844,6 +1885,7 @@ exports[`renders not visible FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -1988,8 +2030,11 @@ exports[`renders small FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2001,6 +2046,7 @@ exports[`renders small FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }
@@ -2145,8 +2191,11 @@ exports[`renders visible FAB 1`] = `
           }
         }
         accessible={true}
+        collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2158,6 +2207,7 @@ exports[`renders visible FAB 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             undefined,
           ]
         }

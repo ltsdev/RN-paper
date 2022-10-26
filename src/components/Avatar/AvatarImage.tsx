@@ -1,15 +1,16 @@
 import * as React from 'react';
 import {
   Image,
-  ImageSourcePropType,
   ImageProps,
+  ImageSourcePropType,
+  StyleProp,
   StyleSheet,
   View,
   ViewStyle,
-  StyleProp,
 } from 'react-native';
-import { withTheme } from '../../core/theming';
-import type { Theme } from '../../types';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 
 const defaultSize = 64;
 
@@ -56,7 +57,7 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
 };
 
 /**
@@ -120,6 +121,7 @@ const AvatarImage = ({
           onLoadEnd={onLoadEnd}
           onLoadStart={onLoadStart}
           onProgress={onProgress}
+          accessibilityIgnoresInvertColors
         />
       )}
     </View>
@@ -128,4 +130,4 @@ const AvatarImage = ({
 
 AvatarImage.displayName = 'Avatar.Image';
 
-export default withTheme(AvatarImage);
+export default withInternalTheme(AvatarImage);

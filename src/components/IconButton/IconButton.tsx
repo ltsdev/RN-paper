@@ -1,19 +1,19 @@
 import * as React from 'react';
 import {
-  ViewStyle,
-  StyleSheet,
-  StyleProp,
   GestureResponderEvent,
+  StyleProp,
+  StyleSheet,
   TouchableWithoutFeedback,
+  ViewStyle,
 } from 'react-native';
 
-import TouchableRipple from '../TouchableRipple/TouchableRipple';
-import Icon, { IconSource } from '../Icon';
+import { useInternalTheme } from '../../core/theming';
+import type { $RemoveChildren, ThemeProp } from '../../types';
 import CrossFadeIcon from '../CrossFadeIcon';
-import { withTheme } from '../../core/theming';
-import type { $RemoveChildren, Theme } from '../../types';
-import { getIconButtonColor } from './utils';
+import Icon, { IconSource } from '../Icon';
 import Surface from '../Surface';
+import TouchableRipple from '../TouchableRipple/TouchableRipple';
+import { getIconButtonColor } from './utils';
 
 const PADDING = 8;
 
@@ -69,7 +69,7 @@ export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme?: ThemeProp;
 };
 
 /**
@@ -124,11 +124,12 @@ const IconButton = ({
   selected = false,
   animated = false,
   mode,
-  theme,
   style,
   ...rest
 }: Props) => {
+  const theme = useInternalTheme();
   const { isV3 } = theme;
+
   const IconComponent = animated ? CrossFadeIcon : Icon;
 
   const { iconColor, rippleColor, backgroundColor, borderColor } =
@@ -208,4 +209,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(IconButton);
+export default IconButton;

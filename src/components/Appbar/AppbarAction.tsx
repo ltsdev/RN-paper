@@ -1,14 +1,16 @@
 import * as React from 'react';
-import color from 'color';
 import type {
   StyleProp,
-  ViewStyle,
   TouchableWithoutFeedback,
+  ViewStyle,
 } from 'react-native';
+
+import color from 'color';
+
+import { useInternalTheme } from '../../core/theming';
 import { black } from '../../styles/themes/v2/colors';
-import IconButton from '../IconButton/IconButton';
 import type { IconSource } from '../Icon';
-import { useTheme } from '../../core/theming';
+import IconButton from '../IconButton/IconButton';
 
 export type Props = React.ComponentPropsWithoutRef<typeof IconButton> & {
   /**
@@ -80,7 +82,7 @@ const AppbarAction = ({
   isLeading,
   ...rest
 }: Props) => {
-  const theme = useTheme();
+  const theme = useInternalTheme();
 
   const actionIconColor = iconColor
     ? iconColor

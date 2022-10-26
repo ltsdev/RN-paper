@@ -1,17 +1,19 @@
 import * as React from 'react';
 import {
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
   GestureResponderEvent,
+  StyleProp,
+  StyleSheet,
+  ViewStyle,
 } from 'react-native';
-import { withTheme } from '../../core/theming';
+
 import color from 'color';
+
+import { withInternalTheme } from '../../core/theming';
+import { black, white } from '../../styles/themes/v2/colors';
+import type { InternalTheme } from '../../types';
+import type { IconSource } from '../Icon';
 import IconButton from '../IconButton/IconButton';
 import { ToggleButtonGroupContext } from './ToggleButtonGroup';
-import { black, white } from '../../styles/themes/v2/colors';
-import type { IconSource } from '../Icon';
-import type { Theme } from '../../types';
 import { getToggleButtonColor } from './utils';
 
 export type Props = {
@@ -51,7 +53,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
 };
 
 /**
@@ -158,9 +160,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(ToggleButton);
+export default withInternalTheme(ToggleButton);
 
 // @component-docs ignore-next-line
-const ToggleButtonWithTheme = withTheme(ToggleButton);
+const ToggleButtonWithTheme = withInternalTheme(ToggleButton);
 // @component-docs ignore-next-line
 export { ToggleButtonWithTheme as ToggleButton };

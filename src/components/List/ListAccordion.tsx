@@ -1,19 +1,21 @@
-import color from 'color';
 import * as React from 'react';
 import {
+  GestureResponderEvent,
+  I18nManager,
+  StyleProp,
+  StyleSheet,
+  TextStyle,
   View,
   ViewStyle,
-  StyleSheet,
-  StyleProp,
-  TextStyle,
-  I18nManager,
-  GestureResponderEvent,
 } from 'react-native';
-import TouchableRipple from '../TouchableRipple/TouchableRipple';
+
+import color from 'color';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 import MaterialCommunityIcon from '../MaterialCommunityIcon';
+import TouchableRipple from '../TouchableRipple/TouchableRipple';
 import Text from '../Typography/Text';
-import { withTheme } from '../../core/theming';
-import type { Theme } from '../../types';
 import { ListAccordionGroupContext } from './ListAccordionGroup';
 
 export type Props = {
@@ -54,7 +56,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * Style that is passed to the wrapping TouchableRipple element.
    */
@@ -200,7 +202,6 @@ const ListAccordion = ({
           accessibilityState={{ expanded: isExpanded }}
           accessibilityLabel={accessibilityLabel}
           testID={testID}
-          delayPressIn={0}
           borderless
         >
           <View style={styles.row} pointerEvents="none">
@@ -251,7 +252,7 @@ const ListAccordion = ({
                   name={isExpanded ? 'chevron-up' : 'chevron-down'}
                   color={theme.isV3 ? descriptionColor : titleColor}
                   size={24}
-                  direction={I18nManager.isRTL ? 'rtl' : 'ltr'}
+                  direction={I18nManager.getConstants().isRTL ? 'rtl' : 'ltr'}
                 />
               )}
             </View>
@@ -312,4 +313,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(ListAccordion);
+export default withInternalTheme(ListAccordion);

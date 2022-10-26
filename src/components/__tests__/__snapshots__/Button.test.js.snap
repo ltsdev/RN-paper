@@ -57,8 +57,11 @@ exports[`renders button with an accessibility hint 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -70,6 +73,7 @@ exports[`renders button with an accessibility hint 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -95,6 +99,7 @@ exports[`renders button with an accessibility hint 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -197,8 +202,11 @@ exports[`renders button with an accessibility label 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -210,6 +218,7 @@ exports[`renders button with an accessibility label 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -235,6 +244,7 @@ exports[`renders button with an accessibility label 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -336,8 +346,11 @@ exports[`renders button with button color 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -349,6 +362,7 @@ exports[`renders button with button color 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -374,6 +388,7 @@ exports[`renders button with button color 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -475,8 +490,11 @@ exports[`renders button with color 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -488,6 +506,7 @@ exports[`renders button with color 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -513,6 +532,7 @@ exports[`renders button with color 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -614,8 +634,11 @@ exports[`renders button with custom testID 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -627,6 +650,7 @@ exports[`renders button with custom testID 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -653,6 +677,7 @@ exports[`renders button with custom testID 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -754,8 +779,11 @@ exports[`renders button with icon 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -767,6 +795,7 @@ exports[`renders button with icon 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -830,6 +859,7 @@ exports[`renders button with icon 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -931,8 +961,11 @@ exports[`renders button with icon in reverse order 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -944,6 +977,7 @@ exports[`renders button with icon in reverse order 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1009,6 +1043,7 @@ exports[`renders button with icon in reverse order 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1110,8 +1145,11 @@ exports[`renders contained contained with mode 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1123,6 +1161,7 @@ exports[`renders contained contained with mode 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1148,6 +1187,7 @@ exports[`renders contained contained with mode 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1250,8 +1290,11 @@ exports[`renders disabled button 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1263,6 +1306,7 @@ exports[`renders disabled button 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1288,6 +1332,7 @@ exports[`renders disabled button 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1389,8 +1434,11 @@ exports[`renders loading button 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1402,6 +1450,7 @@ exports[`renders loading button 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1635,6 +1684,7 @@ exports[`renders loading button 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1736,8 +1786,11 @@ exports[`renders outlined button with mode 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1749,6 +1802,7 @@ exports[`renders outlined button with mode 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1774,6 +1828,7 @@ exports[`renders outlined button with mode 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -1876,8 +1931,11 @@ exports[`renders text button by default 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -1889,6 +1947,7 @@ exports[`renders text button by default 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -1914,6 +1973,7 @@ exports[`renders text button by default 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,
@@ -2015,8 +2075,11 @@ exports[`renders text button with mode 1`] = `
           }
         }
         accessible={true}
-        focusable={false}
+        collapsable={false}
+        focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -2028,6 +2091,7 @@ exports[`renders text button with mode 1`] = `
             Object {
               "overflow": "hidden",
             },
+            false,
             Object {
               "borderRadius": 20,
             },
@@ -2053,6 +2117,7 @@ exports[`renders text button with mode 1`] = `
               Array [
                 Object {
                   "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
                   "fontSize": 14,
                   "fontWeight": "500",
                   "letterSpacing": 0.1,

@@ -1,6 +1,3 @@
-import * as MD2Colors from './styles/themes/v2/colors';
-export { MD2Colors };
-
 export { MD3Colors } from './styles/themes/v3/tokens';
 
 export {
@@ -8,6 +5,7 @@ export {
   withTheme,
   ThemeProvider,
   DefaultTheme,
+  adaptNavigationTheme,
 } from './core/theming';
 
 export * from './styles/themes';
@@ -18,9 +16,11 @@ export { default as overlay } from './styles/overlay';
 export { default as configureFonts } from './styles/fonts';
 
 import * as Avatar from './components/Avatar/Avatar';
-import * as List from './components/List/List';
 import * as Drawer from './components/Drawer/Drawer';
+import * as List from './components/List/List';
+import * as MD2Colors from './styles/themes/v2/colors';
 
+export { MD2Colors };
 export { Avatar, List, Drawer };
 
 export * from './components/FAB/AnimatedFAB';
@@ -146,10 +146,4 @@ export type { Props as TitleProps } from './components/Typography/v2/Title';
 export type { Props as TextProps } from './components/Typography/Text';
 export type { Props as SegmentedButtonsProps } from './components/SegmentedButtons/SegmentedButtons';
 
-export type {
-  MD2Theme,
-  MD3Theme,
-  ThemeBase,
-  MD3Elevation,
-  Theme,
-} from './types';
+export type { MD2Theme, MD3Theme, ThemeBase, MD3Elevation } from './types';

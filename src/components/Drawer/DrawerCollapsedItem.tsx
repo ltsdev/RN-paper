@@ -1,20 +1,21 @@
 import * as React from 'react';
 import {
-  View,
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
   Animated,
-  TouchableWithoutFeedback,
   NativeSyntheticEvent,
-  TextLayoutEventData,
   Platform,
+  StyleProp,
+  StyleSheet,
+  TextLayoutEventData,
+  TouchableWithoutFeedback,
+  View,
+  ViewStyle,
 } from 'react-native';
-import Text from '../Typography/Text';
-import Icon, { IconSource } from '../Icon';
-import { withTheme } from '../../core/theming';
-import type { Theme } from '../../types';
+
+import { withInternalTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 import Badge from '../Badge';
+import Icon, { IconSource } from '../Icon';
+import Text from '../Typography/Text';
 
 export type Props = React.ComponentPropsWithRef<typeof View> & {
   /**
@@ -41,7 +42,7 @@ export type Props = React.ComponentPropsWithRef<typeof View> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * Badge to show on the icon, can be `true` to show a dot, `string` or `number` to show text.
    */
@@ -139,8 +140,14 @@ const DrawerCollapsedItem = ({
   const androidLetterSpacingStyle =
     Platform.OS === 'android' && numOfLines > 4 && styles.letterSpacing;
 
+  const labelTextStyle = {
+    color: labelColor,
+    ...(isV3 ? theme.fonts.labelMedium : {}),
+  };
+
   return (
     <View {...rest}>
+      {/* eslint-disable-next-line react-native-a11y/has-accessibility-props */}
       <TouchableWithoutFeedback
         onPress={onPress}
         onPressOut={onPress ? handlePressOut : undefined}
@@ -191,13 +198,7 @@ const DrawerCollapsedItem = ({
               selectable={false}
               numberOfLines={2}
               onTextLayout={onTextLayout}
-              style={[
-                styles.label,
-                androidLetterSpacingStyle,
-                {
-                  color: labelColor,
-                },
-              ]}
+              style={[styles.label, androidLetterSpacingStyle, labelTextStyle]}
             >
               {label}
             </Text>
@@ -247,4 +248,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(DrawerCollapsedItem);
+export default withInternalTheme(DrawerCollapsedItem);

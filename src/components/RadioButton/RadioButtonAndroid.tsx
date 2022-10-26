@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Animated, View, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
+
+import { withInternalTheme } from '../../core/theming';
+import type { $RemoveChildren, InternalTheme } from '../../types';
+import { getAndroidSelectionControlColor } from '../Checkbox/utils';
+import TouchableRipple from '../TouchableRipple/TouchableRipple';
 import { RadioButtonContext, RadioButtonContextType } from './RadioButtonGroup';
 import { handlePress, isChecked } from './utils';
-import TouchableRipple from '../TouchableRipple/TouchableRipple';
-import { withTheme } from '../../core/theming';
-import type { $RemoveChildren, Theme } from '../../types';
-import { getAndroidSelectionControlColor } from '../Checkbox/utils';
 
 export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
@@ -35,7 +36,7 @@ export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * testID to be used on tests.
    */
@@ -201,9 +202,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(RadioButtonAndroid);
+export default withInternalTheme(RadioButtonAndroid);
 
 // @component-docs ignore-next-line
-const RadioButtonAndroidWithTheme = withTheme(RadioButtonAndroid);
+const RadioButtonAndroidWithTheme = withInternalTheme(RadioButtonAndroid);
 // @component-docs ignore-next-line
 export { RadioButtonAndroidWithTheme as RadioButtonAndroid };

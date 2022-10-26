@@ -1,16 +1,18 @@
 import * as React from 'react';
-import color from 'color';
 import {
-  StyleSheet,
   StyleProp,
+  StyleSheet,
   View,
-  ViewStyle,
   ViewProps,
+  ViewStyle,
 } from 'react-native';
-import TouchableRipple from '../TouchableRipple/TouchableRipple';
+
+import color from 'color';
+
+import { withInternalTheme } from '../../core/theming';
 import { black, white } from '../../styles/themes/v2/colors';
-import { withTheme } from '../../core/theming';
-import type { $RemoveChildren, Theme } from '../../types';
+import type { $RemoveChildren, InternalTheme } from '../../types';
+import TouchableRipple from '../TouchableRipple/TouchableRipple';
 
 export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
@@ -25,7 +27,7 @@ export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * `pointerEvents` passed to the `View` container, which is wrapping children within `TouchableRipple`.
    */
@@ -103,7 +105,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(DataTableRow);
+export default withInternalTheme(DataTableRow);
 
 // @component-docs ignore-next-line
 export { DataTableRow };

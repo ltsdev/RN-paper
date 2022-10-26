@@ -1,4 +1,3 @@
-import color from 'color';
 import * as React from 'react';
 import {
   StyleProp,
@@ -8,11 +7,16 @@ import {
   ViewStyle,
 } from 'react-native';
 
+import color from 'color';
+
+import { withInternalTheme } from '../../core/theming';
+import type {
+  $RemoveChildren,
+  EllipsizeProp,
+  InternalTheme,
+} from '../../types';
 import TouchableRipple from '../TouchableRipple/TouchableRipple';
 import Text from '../Typography/Text';
-import { withTheme } from '../../core/theming';
-import type { $RemoveChildren, EllipsizeProp } from '../../types';
-import type { Theme } from '../../types';
 
 type Title =
   | React.ReactNode
@@ -69,7 +73,7 @@ export type Props = $RemoveChildren<typeof TouchableRipple> & {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * Style that is passed to the wrapping TouchableRipple element.
    */
@@ -273,4 +277,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(ListItem);
+export default withInternalTheme(ListItem);

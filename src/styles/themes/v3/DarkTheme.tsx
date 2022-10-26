@@ -1,4 +1,5 @@
 import color from 'color';
+
 import type { MD3Theme } from '../../../types';
 import { MD3LightTheme } from './LightTheme';
 import { MD3Colors, tokens } from './tokens';
@@ -43,9 +44,12 @@ export const MD3DarkTheme: MD3Theme = {
     onErrorContainer: palette.error80,
     onBackground: palette.neutral90,
     outline: palette.neutralVariant60,
+    outlineVariant: palette.neutralVariant30,
     inverseSurface: palette.neutral90,
     inverseOnSurface: palette.neutral20,
     inversePrimary: palette.primary40,
+    shadow: palette.neutral0,
+    scrim: palette.neutral0,
     backdrop: color(MD3Colors.neutralVariant20).alpha(0.4).rgb().string(),
     elevation: {
       level0: 'transparent',

@@ -1,31 +1,33 @@
 import * as React from 'react';
 import {
-  View,
   Animated,
+  EasingFunction,
+  Platform,
+  StyleProp,
+  StyleSheet,
   TouchableWithoutFeedback,
   TouchableWithoutFeedbackProps,
-  StyleSheet,
-  StyleProp,
-  Platform,
+  View,
   ViewStyle,
-  EasingFunction,
 } from 'react-native';
-import { getBottomSpace } from 'react-native-iphone-x-helper';
+
 import color from 'color';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
+
+import { withInternalTheme } from '../../core/theming';
 import overlay from '../../styles/overlay';
-import Icon, { IconSource } from '../Icon';
-import Surface from '../Surface';
-import Badge from '../Badge';
-import TouchableRipple from '../TouchableRipple/TouchableRipple';
-import Text from '../Typography/Text';
 import { black, white } from '../../styles/themes/v2/colors';
-import { withTheme } from '../../core/theming';
+import type { InternalTheme } from '../../types';
 import useAnimatedValue from '../../utils/useAnimatedValue';
 import useAnimatedValueArray from '../../utils/useAnimatedValueArray';
-import useLayout from '../../utils/useLayout';
 import useIsKeyboardShown from '../../utils/useIsKeyboardShown';
+import useLayout from '../../utils/useLayout';
+import Badge from '../Badge';
+import Icon, { IconSource } from '../Icon';
+import Surface from '../Surface';
+import TouchableRipple from '../TouchableRipple/TouchableRipple';
+import Text from '../Typography/Text';
 import BottomNavigationRouteScreen from './BottomNavigationRouteScreen';
-import type { Theme } from '../../types';
 
 type Route = {
   key: string;
@@ -63,6 +65,7 @@ export type Props = {
    *
    * By default, this is `false` with theme version 3 and `true` when you have more than 3 tabs.
    * Pass `shifting={false}` to explicitly disable this animation, or `shifting={true}` to always use this animation.
+   * Note that you need at least 2 tabs be able to run this animation.
    */
   shifting?: boolean;
   /**
@@ -254,7 +257,7 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
   /**
    * TestID used for testing purposes
    */
@@ -306,7 +309,7 @@ const SceneComponent = React.memo(({ component, ...rest }: any) =>
  * For integration with React Navigation, you can use [react-navigation-material-bottom-tabs](https://github.com/react-navigation/react-navigation/tree/main/packages/material-bottom-tabs) and consult [createMaterialBottomTabNavigator](https://reactnavigation.org/docs/material-bottom-tab-navigator/) documentation.
  *
  * By default Bottom navigation uses primary color as a background, in dark theme with `adaptive` mode it will use surface colour instead.
- * See [Dark Theme](https://callstack.github.io/react-native-paper/theming.html#dark-theme) for more information.
+ * See [Dark InternalTheme](https://callstack.github.io/react-native-paper/theming.html#dark-theme) for more information.
  *
  * <div class="screenshots">
  *   <img class="small" src="screenshots/bottom-navigation.gif" />
@@ -384,6 +387,14 @@ const BottomNavigation = ({
   testID = 'bottom-navigation',
 }: Props) => {
   const { scale } = theme.animation;
+
+  if (shifting && navigationState.routes.length < 2) {
+    shifting = false;
+
+    console.warn(
+      'BottomNavigation needs at least 2 tabs to run shifting animation'
+    );
+  }
 
   const focusedKey = navigationState.routes[navigationState.index].key;
 
@@ -607,14 +618,16 @@ const BottomNavigation = ({
     ? overlay(elevation, colors?.surface)
     : colors?.primary;
 
-  const v2BackgroundColorInterpolation = indexAnim.interpolate({
-    inputRange: routes.map((_, i) => i),
-    // FIXME: does outputRange support ColorValue or just strings?
-    // @ts-expect-error
-    outputRange: routes.map(
-      (route) => getColor({ route }) || approxBackgroundColor
-    ),
-  });
+  const v2BackgroundColorInterpolation = shifting
+    ? indexAnim.interpolate({
+        inputRange: routes.map((_, i) => i),
+        // FIXME: does outputRange support ColorValue or just strings?
+        // @ts-expect-error
+        outputRange: routes.map(
+          (route) => getColor({ route }) || approxBackgroundColor
+        ),
+      })
+    : approxBackgroundColor;
 
   const backgroundColor = isV3
     ? customBackground || theme.colors.elevation.level2
@@ -890,6 +903,8 @@ const BottomNavigation = ({
 
               const isV3Shifting = isV3 && shifting && labeled;
 
+              const font = isV3 ? theme.fonts.labelMedium : {};
+
               return renderTouchable({
                 key: route.key,
                 route,
@@ -921,7 +936,7 @@ const BottomNavigation = ({
                         },
                       ]}
                     >
-                      {isV3 && (
+                      {isV3 && focused && (
                         <Animated.View
                           style={[
                             styles.outline,
@@ -1023,6 +1038,7 @@ const BottomNavigation = ({
                                 styles.label,
                                 {
                                   color: activeLabelColor,
+                                  ...font,
                                 },
                               ]}
                             >
@@ -1054,6 +1070,7 @@ const BottomNavigation = ({
                                   styles.label,
                                   {
                                     color: inactiveLabelColor,
+                                    ...font,
                                   },
                                 ]}
                               >
@@ -1104,7 +1121,7 @@ BottomNavigation.SceneMap = (scenes: {
   );
 };
 
-export default withTheme(BottomNavigation);
+export default withInternalTheme(BottomNavigation);
 
 const styles = StyleSheet.create({
   container: {

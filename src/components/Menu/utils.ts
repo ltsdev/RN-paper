@@ -1,6 +1,7 @@
 import color from 'color';
-import type { Theme } from '../../types';
-import { white, black } from '../../styles/themes/v2/colors';
+
+import { black, white } from '../../styles/themes/v2/colors';
+import type { InternalTheme } from '../../types';
 import type { IconSource } from '../Icon';
 
 export const MIN_WIDTH = 112;
@@ -14,11 +15,11 @@ type ContentProps = {
 };
 
 type ColorProps = {
-  theme: Theme;
+  theme: InternalTheme;
   disabled?: boolean;
 };
 
-const getDisabledColor = (theme: Theme) => {
+const getDisabledColor = (theme: InternalTheme) => {
   if (theme.isV3) {
     return theme.colors.onSurfaceDisabled;
   }

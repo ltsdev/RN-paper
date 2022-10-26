@@ -86,10 +86,15 @@ exports[`render visible banner, with custom theme 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {
@@ -171,8 +176,11 @@ exports[`render visible banner, with custom theme 1`] = `
                       }
                     }
                     accessible={true}
+                    collapsable={false}
                     focusable={true}
+                    onBlur={[Function]}
                     onClick={[Function]}
+                    onFocus={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
                     onResponderRelease={[Function]}
@@ -184,6 +192,7 @@ exports[`render visible banner, with custom theme 1`] = `
                         Object {
                           "overflow": "hidden",
                         },
+                        false,
                         Object {
                           "borderRadius": 20,
                         },
@@ -209,6 +218,7 @@ exports[`render visible banner, with custom theme 1`] = `
                           Array [
                             Object {
                               "color": "rgba(28, 27, 31, 1)",
+                              "fontFamily": "System",
                               "fontSize": 14,
                               "fontWeight": "500",
                               "letterSpacing": 0.1,
@@ -360,10 +370,15 @@ exports[`renders hidden banner, without action buttons and without image 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {
@@ -483,10 +498,15 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {
@@ -568,8 +588,11 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
                       }
                     }
                     accessible={true}
+                    collapsable={false}
                     focusable={true}
+                    onBlur={[Function]}
                     onClick={[Function]}
+                    onFocus={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
                     onResponderRelease={[Function]}
@@ -581,6 +604,7 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
                         Object {
                           "overflow": "hidden",
                         },
+                        false,
                         Object {
                           "borderRadius": 20,
                         },
@@ -606,6 +630,7 @@ exports[`renders visible banner, with action buttons and with image 1`] = `
                           Array [
                             Object {
                               "color": "rgba(28, 27, 31, 1)",
+                              "fontFamily": "System",
                               "fontSize": 14,
                               "fontWeight": "500",
                               "letterSpacing": 0.1,
@@ -745,10 +770,15 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {
@@ -830,8 +860,11 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                       }
                     }
                     accessible={true}
+                    collapsable={false}
                     focusable={true}
+                    onBlur={[Function]}
                     onClick={[Function]}
+                    onFocus={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
                     onResponderRelease={[Function]}
@@ -843,6 +876,7 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                         Object {
                           "overflow": "hidden",
                         },
+                        false,
                         Object {
                           "borderRadius": 20,
                         },
@@ -868,6 +902,7 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                           Array [
                             Object {
                               "color": "rgba(28, 27, 31, 1)",
+                              "fontFamily": "System",
                               "fontSize": 14,
                               "fontWeight": "500",
                               "letterSpacing": 0.1,
@@ -969,8 +1004,11 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                       }
                     }
                     accessible={true}
+                    collapsable={false}
                     focusable={true}
+                    onBlur={[Function]}
                     onClick={[Function]}
+                    onFocus={[Function]}
                     onResponderGrant={[Function]}
                     onResponderMove={[Function]}
                     onResponderRelease={[Function]}
@@ -982,6 +1020,7 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                         Object {
                           "overflow": "hidden",
                         },
+                        false,
                         Object {
                           "borderRadius": 20,
                         },
@@ -1007,6 +1046,7 @@ exports[`renders visible banner, with action buttons and without image 1`] = `
                           Array [
                             Object {
                               "color": "rgba(28, 27, 31, 1)",
+                              "fontFamily": "System",
                               "fontSize": 14,
                               "fontWeight": "500",
                               "letterSpacing": 0.1,
@@ -1147,10 +1187,15 @@ exports[`renders visible banner, without action buttons and with image 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {
@@ -1269,10 +1314,15 @@ exports[`renders visible banner, without action buttons and without image 1`] = 
               style={
                 Array [
                   Object {
-                    "color": "rgba(28, 27, 31, 1)",
+                    "textAlign": "left",
                   },
                   Object {
-                    "textAlign": "left",
+                    "color": "rgba(28, 27, 31, 1)",
+                    "fontFamily": "System",
+                    "fontWeight": "400",
+                  },
+                  Object {
+                    "writingDirection": "ltr",
                   },
                   Array [
                     Object {

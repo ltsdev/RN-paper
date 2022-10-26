@@ -1,31 +1,32 @@
 import * as React from 'react';
 import {
-  Platform,
-  StyleProp,
-  StyleSheet,
   Animated,
   BackHandler,
   Dimensions,
   Easing,
+  findNodeHandle,
   I18nManager,
   LayoutRectangle,
+  NativeEventSubscription,
+  Platform,
+  ScrollView,
+  ScrollViewProps,
+  StyleProp,
+  StyleSheet,
   TouchableWithoutFeedback,
   View,
   ViewStyle,
-  ScrollView,
-  findNodeHandle,
-  NativeEventSubscription,
 } from 'react-native';
+
 import color from 'color';
 
-import { withTheme } from '../../core/theming';
-import type { $Omit } from '../../types';
+import { APPROX_STATUSBAR_HEIGHT } from '../../constants';
+import { withInternalTheme } from '../../core/theming';
+import type { $Omit, InternalTheme } from '../../types';
+import { addEventListener } from '../../utils/addEventListener';
 import Portal from '../Portal/Portal';
 import Surface from '../Surface';
 import MenuItem from './MenuItem';
-import { APPROX_STATUSBAR_HEIGHT } from '../../constants';
-import { addEventListener } from '../../utils/addEventListener';
-import type { Theme } from '../../types';
 
 export type Props = {
   /**
@@ -46,7 +47,7 @@ export type Props = {
   /**
    * Callback called when Menu is dismissed. The `visible` prop needs to be updated when this is called.
    */
-  onDismiss: () => void;
+  onDismiss?: () => void;
   /**
    * Accessibility label for the overlay. This is read by the screen reader when the user taps outside the menu.
    */
@@ -63,7 +64,11 @@ export type Props = {
   /**
    * @optional
    */
-  theme: Theme;
+  theme: InternalTheme;
+  /**
+   * Inner ScrollView prop
+   */
+  keyboardShouldPersistTaps?: ScrollViewProps['keyboardShouldPersistTaps'];
 };
 
 type Layout = $Omit<$Omit<LayoutRectangle, 'x'>, 'y'>;
@@ -233,14 +238,14 @@ class Menu extends React.Component<Props, State> {
 
   private handleDismiss = () => {
     if (this.props.visible) {
-      this.props.onDismiss();
+      this.props.onDismiss?.();
     }
     return true;
   };
 
   private handleKeypress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      this.props.onDismiss();
+      this.props.onDismiss?.();
     }
   };
 
@@ -358,6 +363,7 @@ class Menu extends React.Component<Props, State> {
       statusBarHeight,
       onDismiss,
       overlayAccessibilityLabel,
+      keyboardShouldPersistTaps,
     } = this.props;
 
     const {
@@ -537,7 +543,7 @@ class Menu extends React.Component<Props, State> {
 
     const positionStyle = {
       top: this.isCoordinate(anchor) ? top : top + additionalVerticalValue,
-      ...(I18nManager.isRTL ? { right: left } : { left }),
+      ...(I18nManager.getConstants().isRTL ? { right: left } : { left }),
     };
 
     return (
@@ -585,7 +591,11 @@ class Menu extends React.Component<Props, State> {
                   {...(theme.isV3 && { elevation: 2 })}
                 >
                   {(scrollableMenuHeight && (
-                    <ScrollView>{children}</ScrollView>
+                    <ScrollView
+                      keyboardShouldPersistTaps={keyboardShouldPersistTaps}
+                    >
+                      {children}
+                    </ScrollView>
                   )) || <React.Fragment>{children}</React.Fragment>}
                 </Surface>
               </Animated.View>
@@ -607,4 +617,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(Menu);
+export default withInternalTheme(Menu);
