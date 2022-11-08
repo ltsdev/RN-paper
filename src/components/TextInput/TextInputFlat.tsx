@@ -73,6 +73,7 @@ const TextInputFlat = ({
   right,
   placeholderTextColor,
   testID = 'text-input-flat',
+  customLabelColor,
   ...rest
 }: ChildTextInputProps) => {
   const isAndroid = Platform.OS === 'android';
@@ -274,6 +275,7 @@ const TextInputFlat = ({
     roundness,
     maxFontSizeMultiplier: rest.maxFontSizeMultiplier,
     testID,
+    customLabelColor,
   };
   const affixTopPosition = {
     [AdornmentSide.Left]: leftAffixTopPosition,

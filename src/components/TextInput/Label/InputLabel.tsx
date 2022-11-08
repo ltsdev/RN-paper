@@ -29,6 +29,7 @@ const InputLabel = (props: InputLabelProps) => {
     labelTranslationXOffset,
     maxFontSizeMultiplier,
     testID,
+    customLabelColor,
   } = props.labelProps;
 
   const labelTranslationX = {
@@ -73,7 +74,7 @@ const InputLabel = (props: InputLabelProps) => {
     ],
   };
 
-  const textColor = error && errorColor ? errorColor : placeholderColor;
+  const textColor = error && errorColor ? errorColor : customLabelColor ? customLabelColor : placeholderColor;
 
   return label ? (
     // Position colored placeholder and gray placeholder on top of each other and crossfade them

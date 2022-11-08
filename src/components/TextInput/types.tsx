@@ -49,6 +49,7 @@ export type ChildTextInputProps = {
   onLayoutAnimatedText: (args: any) => void;
   onLeftAffixLayoutChange: (event: LayoutChangeEvent) => void;
   onRightAffixLayoutChange: (event: LayoutChangeEvent) => void;
+  customLabelColor?: string;
 } & TextInputTypesWithoutMode;
 export type LabelProps = {
   mode?: 'flat' | 'outlined';
@@ -76,12 +77,14 @@ export type LabelProps = {
   roundness: number;
   maxFontSizeMultiplier?: number | undefined | null;
   testID?: string;
+  customLabelColor?: string;
 };
 export type InputLabelProps = {
   parentState: State;
   labelProps: LabelProps;
   labelBackground?: any;
   maxFontSizeMultiplier?: number | undefined | null;
+  customLabelColor?: string;
 };
 
 export type LabelBackgroundProps = {
